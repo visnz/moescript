@@ -1,0 +1,12 @@
+// ==UserScript==
+// @name         猫国建设者网页插件(随便测试版)
+// @namespace    https://github.com/visnz/moescript
+// @version      0.1
+// @author       visnz
+// @match        https://likexia.gitee.io/cat-zh/*
+// 
+//  因为使用了中文作为函数名，在脚本这边只使用经过优化处理的js代码。
+//  源码可以直接访问上方 @namespace 地址
+// 
+// ==/UserScript==
+

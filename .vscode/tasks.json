@@ -1,0 +1,12 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compiler & head prepend",
+            "type": "shell",
+            "command": "java -jar /usr/bin/closure-compiler-v20190729.jar --js ${file} --js_output_file  ${fileDirname}/dist/_${fileBasename} && cat head ./dist/_${fileBasename} > ./dist/dist_${fileBasename} && rm ./dist/_${fileBasename}"
+        }
+    ]
+}
