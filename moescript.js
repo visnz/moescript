@@ -63,7 +63,7 @@ const Jobs = {
 // GenerateResourceAll(1) 换算全部木材
 function GenerateResourceAll(target, count = 4) {
     var sel = (count < 1 ? 1 : count > 4 ? 4 : count) + 2
-    i = (typeof target === 'string' ? SourcePositionMap[target] : target)
+    let i = typeof target === 'string' ? SourcePositionMap[target] : target
     $("div.craft:nth-child(" + i + ") > div:nth-child(" + sel + ") > div:nth-child(1)").click()
 }
 
@@ -113,9 +113,9 @@ function jobIncrease(job, count = 1, increase = true) {
 //     _返回记录面板Index()
 // }
 
-const 自动打猎 = () => { $("#fastHuntContainerCount").click() }
-const 抬头看天空 = () => { $("#observeBtn").click() }
-const 赞美太阳 = () => { $("#fastPraiseContainer > a:nth-child(1)")[0].click() }
+const autoHunt = () => { $("#fastHuntContainerCount").click() }
+const seeSky = () => { $("#observeBtn").click() }
+const goodSun = () => { $("#fastPraiseContainer > a:nth-child(1)")[0].click() }
 const _进入篝火面板 = () => { $("a.tab:nth-child(1)")[0].click() }
 const _进入管理面板 = () => { $("a.tab:nth-child(3)")[0].click() }
 const _管理Jobs = () => { $("div.panelContainer:nth-child(3) > div:nth-child(3) > table:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(1)").click() }
@@ -129,13 +129,13 @@ const _检查粮食增量是否为正 = () => {
 const _保存游戏 = () => {
     $("div.links-block:nth-child(6) > a:nth-child(1)").click()
 }
-const 管理Jobs = () => {
+const managerMoe = () => {
     _记录当前面板Index()
     _进入管理面板()
     _管理Jobs()
     _返回记录面板Index()
 }
-const 小猫升职器 = () => {
+const upgradeMoe = () => {
     _记录当前面板Index()
     _进入管理面板()
     _提拔小猫()
@@ -192,19 +192,19 @@ const 低速卡机刨木法 = () => {
     for (i = 0; i < 6000; i++) { $(".bldGroupContainer .modern")[0].click() }
     _返回记录面板Index()
 }
-const 合成木材 = () => { GenerateResourceAll("木材") }
-const 合成钢 = () => { GenerateResourceAll("钢") }
-const 合成木梁 = () => { GenerateResourceAll("木梁") }
-const 合成石板 = () => { GenerateResourceAll("石板") }
-const 合成金属板 = () => { GenerateResourceAll("金属板") }
-const 合成齿轮 = () => { GenerateResourceAll("齿轮") }
-const 合成脚手架 = () => { GenerateResourceAll("脚手架") }
-const 合成船 = () => { GenerateResourceAll("船") }
-const 合成羊皮纸 = () => { GenerateResourceAll("羊皮纸") }
-const 合成手稿 = () => { GenerateResourceAll("手稿") }
-const 合成概要 = () => { GenerateResourceAll("概要") }
-const 合成蓝图 = () => { GenerateResourceAll("蓝图") }
-const 合成巨石 = () => { GenerateResourceAll("巨石") }
+const gen1 = () => { GenerateResourceAll(1) }
+const gen6 = () => { GenerateResourceAll(6) }
+const gen3 = () => { GenerateResourceAll(3) }
+const gen4 = () => { GenerateResourceAll(4) }
+const gen5 = () => { GenerateResourceAll(5) }
+const gen8 = () => { GenerateResourceAll(8) }
+const gen11 = () => { GenerateResourceAll(11) }
+const gen12 = () => { GenerateResourceAll(12) }
+const gen15 = () => { GenerateResourceAll(15) }
+const gen16 = () => { GenerateResourceAll(16) }
+const gen17 = () => { GenerateResourceAll(17) }
+const gen18 = () => { GenerateResourceAll(18) }
+const gen20 = () => { GenerateResourceAll(20) }
 
 // model 数据结构:
 //  DisplayName 将会作为id在按钮上出现
@@ -214,11 +214,11 @@ var AllOperators = [
     {
         panel: "基本",
         list: [
-            { DisplayName: "抬头看天空", timer: fastDelay },
-            { DisplayName: "自动打猎" },
-            { DisplayName: "赞美太阳" },
-            { DisplayName: "管理Jobs", timer: verySlowDelay },
-            { DisplayName: "小猫升职器", timer: verySlowDelay },
+            { DisplayName: "抬头看天空",scriptFunc:seeSky, timer: fastDelay },
+            { DisplayName: "自动打猎",scriptFunc:autoHunt },
+            { DisplayName: "赞美太阳",scriptFunc:goodSun },
+            { DisplayName: "管理Jobs",scriptFunc:managerMoe, timer: verySlowDelay },
+            { DisplayName: "小猫升职器",scriptFunc:upgradeMoe, timer: verySlowDelay },
         ]
         //     }, {
         //         panel: "策略",
@@ -228,19 +228,19 @@ var AllOperators = [
     }, {
         panel: "合成",
         list: [
-            { DisplayName: "合成木材" },
-            { DisplayName: "合成钢" },
-            { DisplayName: "合成木梁" },
-            { DisplayName: "合成石板" },
-            { DisplayName: "合成金属板" },
-            { DisplayName: "合成齿轮" },
-            { DisplayName: "合成脚手架" },
-            { DisplayName: "合成船" },
-            { DisplayName: "合成羊皮纸" },
-            { DisplayName: "合成手稿" },
-            { DisplayName: "合成概要" },
-            { DisplayName: "合成蓝图" },
-            { DisplayName: "合成巨石" },
+            { DisplayName: "合成木材",scriptFunc:gen1 },
+            { DisplayName: "合成钢",scriptFunc:gen6 },
+            { DisplayName: "合成木梁",scriptFunc:gen3 },
+            { DisplayName: "合成石板",scriptFunc:gen4 },
+            { DisplayName: "合成金属板",scriptFunc:gen5 },
+            { DisplayName: "合成齿轮",scriptFunc:gen8 },
+            { DisplayName: "合成脚手架",scriptFunc:gen11 },
+            { DisplayName: "合成船",scriptFunc:gen12 },
+            { DisplayName: "合成羊皮纸",scriptFunc:gen15 },
+            { DisplayName: "合成手稿",scriptFunc:gen16 },
+            { DisplayName: "合成概要",scriptFunc:gen17 },
+            { DisplayName: "合成蓝图",scriptFunc:gen18 },
+            { DisplayName: "合成巨石",scriptFunc:gen20 },
         ]
     }, {
         panel: "飞天",

@@ -4,6 +4,7 @@
 // @description  游戏《猫国建设者》网页自动化插件（就是外挂）(随便测试版)
 // @version      0.1
 // @author       visnz
+// @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @match        https://likexia.gitee.io/cat-zh/*
 // 
 //  因为使用了中文作为函数名，在脚本这边只使用经过优化处理的js代码。
