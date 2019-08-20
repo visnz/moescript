@@ -75,7 +75,7 @@ function GenerateResourceAll(target, count = 4) {
 // jobIncrease("伐木工",1,false) => -1
 function jobIncrease(job, count = 1, increase = true) {
     var sel = ((count < 1 ? 1 : count > 4 ? 4 : count) + 2) % 4 + 1
-    i = (typeof job === 'string' ? Jobs[job] : job)
+    let i = (typeof job === 'string' ? Jobs[job] : job)
     index = i * 8 + (increase ? 4 : 0) + sel - 1
     $("div.panelContainer .modern a")[index].click()
 }
@@ -143,7 +143,7 @@ const upgradeMoe = () => {
 }
 var pao = 0
 var paotimer = 0
-const 高速卡机刨木法 = () => {
+const pao3v = () => {
     _记录当前面板Index()
     _进入篝火面板()
     if (pao >= 6) {
@@ -155,7 +155,7 @@ const 高速卡机刨木法 = () => {
     for (i = 0; i < 36000; i++) { $(".bldGroupContainer .modern")[0].click() }
     _返回记录面板Index()
 }
-const 中速卡机刨木法 = () => {
+const pao2v = () => {
     _记录当前面板Index()
     _进入篝火面板()
     if (pao >= 30) {
@@ -167,7 +167,7 @@ const 中速卡机刨木法 = () => {
     for (i = 0; i < 12000; i++) { $(".bldGroupContainer .modern")[0].click() }
     _返回记录面板Index()
 }
-const 五分钟中速刨 = () => {
+const pao2v300s = () => {
     _记录当前面板Index()
     _进入篝火面板()
     if (pao >= 30) {
@@ -180,7 +180,7 @@ const 五分钟中速刨 = () => {
     for (i = 0; i < 12000; i++) { $(".bldGroupContainer .modern")[0].click() }
     _返回记录面板Index()
 }
-const 低速卡机刨木法 = () => {
+const pao1v = () => {
     _记录当前面板Index()
     _进入篝火面板()
     if (pao >= 60) {
@@ -245,10 +245,10 @@ var AllOperators = [
     }, {
         panel: "飞天",
         list: [
-            { DisplayName: "低速卡机刨木法", timer: veryFastDelay },
-            { DisplayName: "中速卡机刨木法", timer: veryFastDelay },
-            { DisplayName: "高速卡机刨木法", timer: veryFastDelay },
-            { DisplayName: "五分钟中速刨", timer: veryFastDelay }
+            { DisplayName: "低速卡机刨木法", timer: veryFastDelay,scriptFunc:pao1v },
+            { DisplayName: "中速卡机刨木法", timer: veryFastDelay,scriptFunc:pao2v },
+            { DisplayName: "高速卡机刨木法", timer: veryFastDelay,scriptFunc:pao3v },
+            { DisplayName: "五分钟中速刨", timer: veryFastDelay,scriptFunc:pao2v300s }
         ]
     },
 ]

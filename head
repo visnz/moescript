@@ -2,7 +2,7 @@
 // @name         猫国建设者网页插件(随便测试版)
 // @namespace    https://github.com/visnz/moescript
 // @description  游戏《猫国建设者》网页自动化插件（就是外挂）(随便测试版)
-// @version      0.1
+// @version      0.12
 // @author       visnz
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @match        https://likexia.gitee.io/cat-zh/*
